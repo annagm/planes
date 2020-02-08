@@ -80,7 +80,7 @@ margin: auto;
 
 .dropdown-content button {
   color: black;
-  background-color: inherit;
+  border-radius: 8px;
   padding: 10px;
   width: 100%;
   text-decoration: none;
