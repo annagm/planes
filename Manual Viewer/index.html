@@ -80,24 +80,32 @@ function showSlides(n) {
 }
 
 //Display Slide in Zoom Modal
-/*function zoomSlide(n) {
+function zoomSlide(n) {
 
+  let isMobile = window.matchMedia("only screen and (max-width: 800px)").matches;
+
+  if(isMobile) {plusSlides(1);}
+  else {
   document.getElementById("zoomModal").style.display = "block";
   //var i;
   var slides = document.getElementsByClassName("mySlides");
   if (n > slides.length) {slideIndex = 1}
-  if (n < slides.length) {//slides[n-1].classList.toggle("active");
-  slides[n-1].classList.toggle("col-3");}
   if (n <= slides.length) {
-    var page = document.createElement("img");
     var exist = document.getElementById("zoom");
+    var old = exist.getElementsByTagName("img");
     var source = slides[n-1].firstElementChild
     var sourcePath = source.src;
+    if (old.length > 0) {
+      old[0].setAttribute("src", sourcePath);
+    }
+    else {
+    var page = document.createElement("img");
     page.setAttribute("src", sourcePath);
-    exist.appendChild(page);
+    exist.appendChild(page);}
   }
+}
 
-}*/
+}
 
 function myDrop() {
   document.getElementById("dropMenu").classList.toggle("show");
